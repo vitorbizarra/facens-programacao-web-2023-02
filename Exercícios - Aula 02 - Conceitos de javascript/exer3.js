@@ -5,16 +5,10 @@
  * aplicação sob o regime de juros compostos.
  */
 
-const jurosSimples = (capitalInicial, taxaDeJuros, tempoDeAplicacao) => {
-    return capitalInicial + (taxaDeJuros * tempoDeAplicacao)
-}
+const jurosSimples = (capitalInicial, taxaDeJuros, tempoDeAplicacao) => capitalInicial + ((capitalInicial * taxaDeJuros * tempoDeAplicacao) / 100);
 
-const jurosCompostos = () => {
-    let resultado = 0;
 
-    for(i = 0; i < tempoDeAplicacao; i++){
-        resultado = resultado + taxaDeJuros;   
-    }
+const jurosCompostos = (capitalInicial, taxaDeJuros, tempoDeAplicacao) => (capitalInicial * Math.pow((1 + taxaDeJuros / 100), tempoDeAplicacao))
 
-    
-}
+console.log(jurosSimples(10, 5, 5))
+console.log(jurosCompostos(10, 5, 5))
